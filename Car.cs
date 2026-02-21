@@ -19,28 +19,7 @@ namespace OOP_Practice_1
             Model = model;
             Year = year;
         }
-
-        public override string ToString()
-        {
-            return $"{Brand} {Model} {Year}";
-        }
-
-        public void Drive()
-        {
-            if (!_engineRunning)
-            {
-                Console.WriteLine("Engine is not started");
-            }
-            else if(_isDriving)
-            {
-                Console.WriteLine("The car is already driving");
-            }
-            else
-            {
-                _isDriving = true;
-                Console.WriteLine("The car is driving now");
-            }
-        }
+        
 
         public void StartEngine()
         {
@@ -53,7 +32,32 @@ namespace OOP_Practice_1
             }
                 
         }
-
+        public void StopEngine()
+        {
+            if (!_engineRunning)
+                Console.WriteLine("Engine is already stopped");
+            else
+            {
+                _engineRunning = false;
+                Console.WriteLine("The engine is stopped");
+            }
+        }
+        public void Drive()
+        {
+            if (!_engineRunning)
+            {
+                Console.WriteLine("Engine is not started");
+            }
+            else if (_isDriving)
+            {
+                Console.WriteLine("The car is already driving");
+            }
+            else
+            {
+                _isDriving = true;
+                Console.WriteLine("The car is driving now");
+            }
+        }
         public void Accelerate()
         {
             if(!_engineRunning)
@@ -84,16 +88,9 @@ namespace OOP_Practice_1
                 Console.WriteLine("Lights are now off");
             }
         }
-
-        public void StopEngine()
+        public override string ToString()
         {
-            if (!_engineRunning)
-                Console.WriteLine("Engine is already stopped");
-            else
-            {
-                _engineRunning = false;
-                Console.WriteLine("The engine is stopped");
-            }
+            return $"{Brand} {Model} {Year}";
         }
     }    
 }
